@@ -1,0 +1,8 @@
+<div>
+<div style="border-color: #000; border-radius: 10px; border-width: 5px; background-color: #E1DFDF" margin-right = 100px margin-left = 100px>
+<center>
+<h1></h1>
+<img src="http://www.escom.ipn.mx/Conocenos/PublishingImages/fotoEscudoESCOM.jpg" width="150" height="100"/>
+</center>
+</div>
+</div>
