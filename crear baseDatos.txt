@@ -1,0 +1,159 @@
+create table Alumno
+(
+	boleta varchar(250) primary key not null,
+	edad varchar(250),
+	email varchar(250),
+	domicilio varchar(250),
+	semestre int,
+	estadoA varchar(250),
+	promedio double,
+	escuelaID varchar(250),
+	carreraID varchar(250),
+);
+
+create table materiasAlumno
+(
+	alumnoID varchar(250),
+	materiaID int
+);
+
+create table materia
+(
+	materiaID int primary key not null,
+	nombre varchar(250),
+	semestre varchar(250)
+);
+
+alter table materias add foreign key(alumnoID) references alumno(boleta);
+
+alter table materias add foreign key(materiaID) references materia(materiaID);
+
+create table escuela
+(
+	escuelaID varchar(250) primary key not null,
+	nombre varchar(250),
+	domicilio varchar(250)
+
+);
+
+alter table alumno add foreign key(escuelaID) references escuela(escuelaID);
+
+create table carrera
+(
+	nombre varchar(250) primary key not null,
+	escuelaID varchar(250)
+);
+
+alter table alumno add foreign key(carreraID) references carrera(nombre);
+
+alter table carrera add foreign key(escuelaID) references escuela(escuelaID);                  
+
+create table Profesor
+(
+	numeroEmpleado int primary key not null,
+	nombre varchar(250),
+	edad int,
+	email varchar(250),
+	fecha varchar(250),
+	escuelaID varchar(250),
+	carreraID varchar(250)
+);
+
+create table materiasProfesor
+(
+	profesorID int,
+	materiaID int
+);
+
+alter table profesor add foreign key(escuelaID) references escuela(escuelaID);
+alter table profesor add foreign key(carreraID) references carrera(nombre);
+
+alter table materiasProfesor add foreign key(profesorID) references Profesor(numeroEmpleado) on delete cascade on update cascade;
+alter table materiasProfesor add foreign key(materiaID) references materia(materiaID) on delete cascade on update cascade;
+
+
+
+
+insert into alumno values('2015630518',19,'vg.ursa@gmail.com', 'Neptuno 508', 4, 'Regular', 8.5,'1','Ing. Sistemas Computacionales','David Vega Ramírez');
+insert into escuela values('1', 'ESCOM', 'Av. Juan de Dios Batiz');
+insert into carrera values('Ing. Sistemas Computacionales', '1');
+insert into materia values('2','Probabilidad y estadistica','4');
+insert into materia values('3','Señales','7');
+insert into materiasAlumno values ('2015630518',1),('2015630518',2),('2015630518',3);
+insert into profesor values(100,'Roberto Zagal',35,'ejemplo@gmail', '02/02/2000','1','Ing. Sistemas Computacionales'),
+							(101,'Hector Rojas',35,'ejemplo@gmail', '02/02/2001','1','Ing. Sistemas Computacionales'),
+							(102,'Toala',35,'ejemplo@gmail', '02/02/2002','1','Ing. Sistemas Computacionales');
+insert into materiasProfesor values(100,1),(101,2),(102,3);
+
+insert into alumno values('2015630517',18,'ejemplo@gmail.com', 'pueblo nuevo', 2, 'No regular', 7,'1','ISC','Jorge Rosales');
+insert into materiasAlumno values ('2015630517',1),('2015630517',2);
+
+
+insert into alumno values('2015630516',20,'ejemplo@hotmail.com', 'Trebol', 7, 'Regular', 7,'1','ISC','Roberto Carlos');
+insert into materiasAlumno values ('2015630516',1),('2015630517',3);
+
+
+
+
+
+
+
+select E.*, C.*, A.*, M.*, P.*
+from Escuela E, Carrera C, alumno A, Profesor P, Materia M, materiasProfesor MP, materiasAlumno MA
+where E.escuelaID = C.escuelaID
+and   C.nombre = A.carreraID
+and   A.boleta = MA.alumnoID
+and   MA.materiaID = M.materiaID
+and   M.materiaID = MP.materiaID
+and   MP.profesorID = P.numeroEmpleado;
+
+
+"select E.*"
++"from Escuela E, Carrera C, alumno A, Profesor P, Materia M, materiasProfesor MP, materiasAlumno MA"
++"where E.escuelaID = C.escuelaID"
++"and   C.nombre = A.carreraID"
++"and   A.boleta = MA.alumnoID"
++"and   MA.materiaID = M.materiaID"
++"and   M.materiaID = MP.materiaID"
++"and   MP.profesorID = P.numeroEmpleado"
++"and E.nombre =" + parametros[0];
+
+
+select M.*
+from Escuela E, Carrera C, alumno A, Profesor P, Materia M, materiasProfesor MP, materiasAlumno MA
+where E.escuelaID = C.escuelaID
+and   C.nombre = A.carreraID
+and   A.boleta = MA.alumnoID
+and   MA.materiaID = M.materiaID
+and   M.materiaID = MP.materiaID
+and   MP.profesorID = P.numeroEmpleado
+and E.nombre = 'ESCOM'
+and C.nombre =	'ISC'
+and A.boleta = '2015630517';
+
+
+select P.*
+from Escuela E, Carrera C, alumno A, Profesor P, Materia M, materiasProfesor MP, materiasAlumno MA
+where E.escuelaID = C.escuelaID
+and   C.nombre = A.carreraID
+and   A.boleta = MA.alumnoID
+and   MA.materiaID = M.materiaID
+and   M.materiaID = MP.materiaID
+and   MP.profesorID = P.numeroEmpleado
+and E.nombre = 'ESCOM'
+and C.nombre =	'ISC'
+and M.materiaID = '1';
+
+
+select DISTINCT A.* 
+from Escuela E, Carrera C, alumno A, Profesor P, Materia M, materiasProfesor MP, materiasAlumno MA
+ where E.escuelaID = C.escuelaID 
+ and   C.nombre = A.carreraID 
+ and   A.boleta = MA.alumnoID 
+ and   MA.materiaID = M.materiaID 
+ and   M.materiaID = MP.materiaID 
+ and   MP.profesorID = P.numeroEmpleado 
+ and E.nombre = 'ESCOM' 
+ and  C.nombre = 'ISC' 
+ and A.estadoA = 'Regular' or A.estadoA = 'No regular'
+ and A.promedio >= '7'
