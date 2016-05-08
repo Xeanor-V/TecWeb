@@ -1,0 +1,149 @@
+body {
+	font-size: 1em;
+	font-family: 'Open Sans', sans-serif;
+}
+
+img{
+	width: 100%;
+	height: 100%;
+}
+
+.credencialAnverso {
+	margin: 3em;
+	display: inline-block;
+	background: rgba(222,185,222,1);
+	background: -moz-linear-gradient(left, rgba(222,185,222,1) 0%, rgba(246,246,246,1) 56%, rgba(239,240,247,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(222,185,222,1)), color-stop(56%, rgba(246,246,246,1)), color-stop(100%, rgba(239,240,247,1)));
+	background: -webkit-linear-gradient(left, rgba(222,185,222,1) 0%, rgba(246,246,246,1) 56%, rgba(239,240,247,1) 100%);
+	background: -o-linear-gradient(left, rgba(222,185,222,1) 0%, rgba(246,246,246,1) 56%, rgba(239,240,247,1) 100%);
+	background: -ms-linear-gradient(left, rgba(222,185,222,1) 0%, rgba(246,246,246,1) 56%, rgba(239,240,247,1) 100%);
+	background: linear-gradient(to right, rgba(222,185,222,1) 0%, rgba(246,246,246,1) 56%, rgba(239,240,247,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deb9de', endColorstr='#eff0f7', GradientType=1 );
+
+	border: 2px solid rgba(165, 30, 30, 0.8);
+	border-radius: 10px;
+	border-style: dashed;
+	overflow: auto;
+	width: 550px; 
+	height: 300px; 
+}
+
+.fotoAlumno {
+	padding: 10px;
+	overflow: hidden;
+	float: left;
+	width: 40%;
+	height: 90%;
+}
+
+.encabezadoAnverso {
+	padding: 10px;
+	overflow: hidden;
+	float: right;
+	width: 50%;
+	height: 60%;
+	font-size: 1.6em;
+	font-weight: bold;
+	text-align: right;
+}
+
+.encabezadoAnverso p {
+	margin: 10px;
+	color: rgba(40, 40, 135, 0.9);
+}
+
+.encabezadoAnverso img {
+	margin: 10px;
+	width: 100px;
+	height: 80px;
+}
+
+.escuela {
+	width: 100px;
+	height: 80px;
+}
+
+.datos {
+	padding: 10px;
+	overflow: hidden;
+	float: right;
+	width: 50%;
+	height: 25%;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-align: right;
+}
+
+.datos p {
+	margin: 0px;
+}
+
+/* ------------------------------------ */
+
+.credencialReverso {
+	margin: 3em;
+	display: inline-block;
+	background-image: url("../images/reverso.png");
+	background-size: 80%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-blend-mode: darken;
+	opacity: 1;
+	
+	background-color: rgba(239,240,247,1);
+	background-color: -moz-linear-gradient(left, rgba(239,240,247,1) 0%, rgba(246,246,246,1) 47%, rgba(222,185,222,1) 100%);
+	background-color: -webkit-gradient(left top, right top, color-stop(0%, rgba(239,240,247,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(222,185,222,1)));
+	background-color: -webkit-linear-gradient(left, rgba(239,240,247,1) 0%, rgba(246,246,246,1) 47%, rgba(222,185,222,1) 100%);
+	background-color: -o-linear-gradient(left, rgba(239,240,247,1) 0%, rgba(246,246,246,1) 47%, rgba(222,185,222,1) 100%);
+	background-color: -ms-linear-gradient(left, rgba(239,240,247,1) 0%, rgba(246,246,246,1) 47%, rgba(222,185,222,1) 100%);
+	background-color: linear-gradient(to right, rgba(239,240,247,1) 0%, rgba(246,246,246,1) 47%, rgba(222,185,222,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eff0f7', endColorstr='#deb9de', GradientType=1 );
+
+	border: 2px solid rgba(165, 30, 30, 0.8);
+	border-radius: 10px;
+	border-style: dashed;
+	overflow: auto;
+	width: 550px; 
+	height: 300px; 
+}
+
+.encabezadoReverso {
+	padding: 10px;
+	overflow: hidden;
+	float: left;
+	width: 50%;
+	height: 65%;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: left;
+	color: rgba(40, 40, 135, 0.9);
+}
+
+.encabezadoReverso p {
+	margin: 10px 0px;
+	font-size: 0.9em;
+	font-weight: normal;
+	color: initial;
+}
+
+.logoInstituto {
+	padding: 10px;
+	overflow: hidden;
+	float: right;
+	width: 40%;
+	height: 65%;
+}
+
+.logoInstituto img {
+	opacity: 0.89;
+}
+.direccion {
+	padding: 10px;
+	overflow: hidden;
+	float: left;
+	width: 96%;
+	height: 20%;
+	text-align: justify;
+	font-size: 0.75em;
+	font-weight: bold;
+}
